@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{ cat.title }}'s Posts{% endblock %}
+{% block content %}
+
+<div class="container-custom">
+    <h3>{{ cat.title }}</h3>
+    <div class="img-container">
+        <img src="/media/{{ cat.image }}" class="responsive-img" style="max-height: 450px; width: 100%; object-fit: cover;" alt="">
+    </div>
+    <div class="collection">
+        <ul class="collection">
+            {% for p in posts %}
+            <li class="collection-item"><a href="/blog/{{p.url}}">{{ p.title }}</a></li>
+            {%empty%}
+            <h3> No Posts in this category ! Sit Back ,Fetching Something New {{cat.title }} posts for You</h3>
+            {% endfor %}
+        </ul>
+{% endblock %}

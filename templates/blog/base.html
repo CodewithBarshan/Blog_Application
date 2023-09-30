@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <!-- Compiled and minified CSS materialize css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Your custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+</head>
+<body>
+    {% include 'blog/header.html' %}
+    {% block content %}
+    {% endblock %}
+    {% include 'blog/footer.html'%}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript materialize js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Initialize Materialize CSS and your theme change script -->
+    <script>
+        $(document).ready(function(){
+            M.AutoInit();
+
+            // Your theme change script here
+            const themeOptions = document.querySelectorAll('.theme-option');
+            const body = document.body;
+
+            themeOptions.forEach((option) => {
+                option.addEventListener('click', function () {
+                    const theme = option.getAttribute('data-theme');
+
+                    if (theme === 'dark') {
+                        body.classList.add('dark-theme');
+                    } else {
+                        body.classList.remove('dark-theme');
+                    }
+                });
+            });
+        });
+    </script>
+    <!-- Owl Carousel JS -->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <!-- Initialize Owl Carousel after jQuery and Owl Carousel JS have loaded -->
+    <script>
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                autoplay: true,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true
+                    },
+                    600: {
+                        items: 3,
+                        nav: false
+                    },
+                    1000: {
+                        items: 3,
+                        nav: true,
+                        loop: false
+                    }
+                }
+            });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- Dropdown Structure -->
+<ul id="dropdown1" class="dropdown-content">
+    {% for cat in cats%}
+    <li><a href="/category/{{cat.url}}">{{cat.title}}</a></li>
+    {% endfor %}
+
+</ul>
+
+<!-- Add the theme change button here -->
+<ul id="theme-dropdown" class="dropdown-content">
+  <li><a href="#!" class="theme-option" data-theme="bright">Bright Mode</a></li>
+  <li><a href="#!" class="theme-option" data-theme="dark">Dark Mode</a></li>
+</ul>
+
+<nav class="bg-primary">
+  <div class="container">
+      <div class="nav-wrapper">
+          <a href="/home" class="brand-logo">Blogify</a>
+          <ul class="right hide-on-med-and-down">
+              <li><a href="/home">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/admin">Admin</a></li>
+              <!-- Dropdown Trigger for Category -->
+              <li><a class="dropdown-trigger" href="#" data-target="dropdown1">Category<i class="material-icons right">arrow_drop_down</i></a></li>
+
+<!-- Dropdown Trigger for Theme Change -->
+<li><a class="dropdown-trigger" href="#" data-target="theme-dropdown">Theme<i class="material-icons right">arrow_drop_down</i></a></li>
+
+          </ul>
+      </div>
+  </div>
+</nav>
